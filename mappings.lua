@@ -1,3 +1,5 @@
+local luasnip = require("luasnip")
+
 return {
   n = {
     -- For US keyboard
@@ -15,5 +17,15 @@ return {
     -- yankround
     ["p"]  = { "<Plug>(yankround-p)" },
     ["gp"] = { "<Plug>(yankround-gp)" },
+  },
+  i = {
+    -- LuaSnip jump index
+    ["<C-k>"] = {
+      function()
+        if luasnip.expand_or_jumpable() then
+          luasnip.expand_or_jump()
+        end
+      end,
+    }
   }
 }
