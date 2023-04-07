@@ -27,7 +27,9 @@ return {
         aerial.focus()
       end,
       desc = "Focus Aerial",
-    }
+    },
+    ["[["]        = { "<cmd>AerialPrev<cr>", silent = true, desc = "Aerial Prev" },
+    ["]]"]        = { "<cmd>AerialNext<cr>", silent = true, desc = "Aerial Next" },
   },
   x = {
     -- yankround
