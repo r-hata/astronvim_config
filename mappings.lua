@@ -13,6 +13,9 @@ return {
     ["gP"]        = { "<Plug>(yankround-gP)" },
     ["<C-p>"]     = { "<Plug>(yankround-prev)" },
     ["<C-n>"]     = { "<Plug>(yankround-next)" },
+    -- aerial
+    ["[["]        = { "<cmd>AerialPrev<cr>", silent = true, desc = "Aerial Prev" },
+    ["]]"]        = { "<cmd>AerialNext<cr>", silent = true, desc = "Aerial Next" },
     ["<leader>a"] = {
       function()
         aerial.toggle({
@@ -28,8 +31,6 @@ return {
       end,
       desc = "Focus Aerial",
     },
-    ["[["]        = { "<cmd>AerialPrev<cr>", silent = true, desc = "Aerial Prev" },
-    ["]]"]        = { "<cmd>AerialNext<cr>", silent = true, desc = "Aerial Next" },
   },
   x = {
     -- yankround
