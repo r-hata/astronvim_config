@@ -2,6 +2,14 @@ local luasnip = require("luasnip")
 local aerial = require("aerial")
 
 return {
+  [""] = {
+    -- leap.nvim
+    ["f"] = { "<Plug>(leap-forward-to)" },
+    ["t"] = { "<Plug>(leap-forward-till)" },
+    ["F"] = { "<Plug>(leap-backward-to)" },
+    ["T"] = { "<Plug>(leap-backward-till)" },
+    ["gf"] = { "<Plug>(leap-from-window)" },
+  },
   n = {
     -- For US keyboard
     [";"]         = { ":", noremap = true },
