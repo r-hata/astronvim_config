@@ -51,8 +51,22 @@ return {
       function()
         if luasnip.expand_or_jumpable() then
           luasnip.expand_or_jump()
+        else
+          return { "<C-e><tab>" }
         end
       end,
     }
-  }
+  },
+  s = {
+    -- LuaSnip jump index
+    ["<C-k>"] = {
+      function()
+        if luasnip.expand_or_jumpable() then
+          luasnip.expand_or_jump()
+        else
+          return { "<C-e><tab>" }
+        end
+      end,
+    }
+  },
 }
