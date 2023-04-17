@@ -39,6 +39,11 @@ return {
       end,
       desc = "Focus Aerial",
     },
+    -- telescope
+    ["<C-c>"]     = { "<cmd>Telescope find_files<cr>", silent = true },
+    ["<C-b>"]     = { "<cmd>Telescope buffers<cr>", silent = true },
+    ["q;"]        = { "<cmd>Telescope command_history<cr>", silent = true, noremap = true },
+    ["q/"]        = { "<cmd>Telescope search_history<cr>", silent = true, noremap = true },
   },
   x = {
     -- yankround
@@ -55,7 +60,7 @@ return {
           return { "<C-e><tab>" }
         end
       end,
-    }
+    },
   },
   s = {
     -- LuaSnip jump index
@@ -67,6 +72,6 @@ return {
           return { "<C-e><tab>" }
         end
       end,
-    }
+    },
   },
 }
