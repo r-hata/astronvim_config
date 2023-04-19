@@ -9,6 +9,8 @@ return {
     ["F"] = { "<Plug>(leap-backward-to)" },
     ["T"] = { "<Plug>(leap-backward-till)" },
     ["gf"] = { "<Plug>(leap-from-window)" },
+    -- zen-mode.nvim
+    ["<C-z>"] = { "<cmd>ZenMode<cr>", silent = true },
   },
   n = {
     -- For US keyboard
