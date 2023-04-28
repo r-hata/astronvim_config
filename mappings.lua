@@ -46,6 +46,8 @@ return {
     ["<C-b>"]     = { "<cmd>Telescope buffers<cr>", silent = true },
     ["q;"]        = { "<cmd>Telescope command_history<cr>", silent = true, noremap = true },
     ["q/"]        = { "<cmd>Telescope search_history<cr>", silent = true, noremap = true },
+    -- ToggleTerm
+    ["<C-t>"]     = { "<cmd>ToggleTerm<cr>", silent = true },
   },
   x = {
     -- yankround
@@ -75,5 +77,9 @@ return {
         end
       end,
     },
+  },
+  t = {
+    -- ToggleTerm
+    ["<C-t>"] = { "<cmd>ToggleTerm<cr>", silent = true },
   },
 }
