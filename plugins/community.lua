@@ -11,4 +11,5 @@ return {
     },
   },
   { import = "astrocommunity.editing-support.zen-mode-nvim" },
+  { import = "astrocommunity.git.git-blame-nvim" },
 }
