@@ -1,4 +1,4 @@
 return {
-  "LeafCage/yankround.vim",
-  event = "BufEnter",
+	"LeafCage/yankround.vim",
+	event = "BufEnter",
 }
