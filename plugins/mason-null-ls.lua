@@ -1,11 +1,11 @@
 local utils = require("astronvim.utils")
 return {
-	"mason-lspconfig.nvim",
+	"mason-null-ls.nvim",
 	opts = function(_, opts)
-		-- Ensure that opts.ensure_installed exists and is a table.
+		-- Ensure that opts.ensure_installed exists and is a table
 		if not opts.ensure_installed then
 			opts.ensure_installed = {}
 		end
-		utils.list_insert_unique(opts.ensure_installed, "bashls", "vimls")
+		utils.list_insert_unique(opts.ensure_installed, "shellcheck")
 	end,
 }

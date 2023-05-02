@@ -1,6 +1,14 @@
 return {
-  "AstroNvim/astrocommunity",
+  {
+    "AstroNvim/astrocommunity",
+    tag = "stable",
+  },
   { import = "astrocommunity.pack.go" },
+  { import = "astrocommunity.pack.json" },
+  { import = "astrocommunity.pack.lua" },
+  { import = "astrocommunity.pack.python" },
+  { import = "astrocommunity.pack.rust" },
+  { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.colorscheme.tokyonight" },
   {
     "tokyonight.nvim",
