@@ -8,6 +8,7 @@ return {
 		elseif opts.ensure_installed == "all" then
 			return
 		end
-		utils.list_insert_unique(opts.ensure_installed, "c", "cpp", "markdown", "vim", "vimdoc")
+		utils.list_insert_unique(opts.ensure_installed, { "cpp", "markdown" })
+		opts.ignore_install = { "bash" }
 	end,
 }

@@ -6,6 +6,6 @@ return {
 		if not opts.ensure_installed then
 			opts.ensure_installed = {}
 		end
-		utils.list_insert_unique(opts.ensure_installed, "bashls", "vimls")
+		utils.list_insert_unique(opts.ensure_installed, "vimls")
 	end,
 }

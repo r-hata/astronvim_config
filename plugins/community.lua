@@ -3,6 +3,7 @@ return {
 		"AstroNvim/astrocommunity",
 		tag = "stable",
 	},
+	{ import = "astrocommunity.pack.bash" },
 	{ import = "astrocommunity.pack.go" },
 	{ import = "astrocommunity.pack.json" },
 	{ import = "astrocommunity.pack.lua" },
