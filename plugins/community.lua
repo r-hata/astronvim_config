@@ -1,8 +1,5 @@
 return {
-  {
-    "AstroNvim/astrocommunity",
-    tag = "stable",
-  },
+  "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.bash" },
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.json" },
