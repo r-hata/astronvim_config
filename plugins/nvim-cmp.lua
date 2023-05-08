@@ -1,6 +1,6 @@
 local cmp = require "cmp"
 return {
-  "nvim-cmp",
+  "hrsh7th/nvim-cmp",
   opts = {
     mapping = {
       ["<C-j>"] = cmp.config.disable,

@@ -1,6 +1,6 @@
 local utils = require "astronvim.utils"
 return {
-  "mason-lspconfig.nvim",
+  "williamboman/mason-lspconfig.nvim",
   opts = function(_, opts)
     -- Ensure that opts.ensure_installed exists and is a table.
     if not opts.ensure_installed then opts.ensure_installed = {} end

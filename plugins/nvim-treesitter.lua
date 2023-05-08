@@ -1,6 +1,6 @@
 local utils = require "astronvim.utils"
 return {
-  "nvim-treesitter",
+  "nvim-treesitter/nvim-treesitter",
   opts = function(_, opts)
     -- Ensure that opts.ensure_installed exists and is a table or string "all".
     if not opts.ensure_installed then
