@@ -46,6 +46,8 @@ return {
     ["q/"] = { "<cmd>Telescope search_history<cr>", silent = true, noremap = true },
     -- ToggleTerm
     ["<C-t>"] = { "<cmd>ToggleTerm<cr>", silent = true },
+    ["<leader>ts"] = { "<cmd>TermSelect<cr>", silent = true, desc = "ToggleTerm select" },
+    ["<leader>tt"] = { "<cmd>ToggleTerm direction=tab<cr>", silent = true, desc = "ToggleTerm tab" },
   },
   x = {
     -- yankround
@@ -63,6 +65,8 @@ return {
         end
       end,
     },
+    -- delete
+    ["<C-l>"] = { "<del>" },
   },
   s = {
     -- LuaSnip jump index
