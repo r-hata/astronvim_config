@@ -1,4 +1,4 @@
 return {
   "cohama/lexima.vim",
-  event = "BufEnter",
+  event = "BufRead",
 }
