@@ -1,5 +1,6 @@
 local luasnip = require "luasnip"
 local aerial = require "aerial"
+local osc52 = require "osc52"
 
 return {
   [""] = {
@@ -23,6 +24,9 @@ return {
     ["gP"] = { "<Plug>(yankround-gP)" },
     ["<C-p>"] = { "<Plug>(yankround-prev)" },
     ["<C-n>"] = { "<Plug>(yankround-next)" },
+    -- osc52
+    ["Y"] = { osc52.copy_operator, expr = true },
+    ["YY"] = { "Y_", remap = true },
     -- aerial
     ["[["] = { "<cmd>AerialPrev<cr>", silent = true, desc = "Aerial Prev" },
     ["]]"] = { "<cmd>AerialNext<cr>", silent = true, desc = "Aerial Next" },
@@ -83,5 +87,9 @@ return {
   t = {
     -- ToggleTerm
     ["<A-i>"] = { "<cmd>ToggleTerm<cr>", silent = true },
+  },
+  v = {
+    -- osc52
+    ["Y"] = { osc52.copy_visual },
   },
 }
