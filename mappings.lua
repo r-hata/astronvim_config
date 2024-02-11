@@ -39,10 +39,7 @@ return {
       end,
       desc = "Toggle Aerial",
     },
-    ["<leader>i"] = {
-      function() aerial.focus() end,
-      desc = "Focus Aerial",
-    },
+    ["<leader>i"] = { aerial.focus, desc = "Focus Aerial" },
     -- telescope
     ["<C-c>"] = { "<cmd>Telescope find_files<cr>", silent = true },
     ["<C-b>"] = { "<cmd>Telescope buffers<cr>", silent = true },
@@ -62,11 +59,7 @@ return {
     -- LuaSnip jump index
     ["<C-k>"] = {
       function()
-        if luasnip.expand_or_jumpable() then
-          luasnip.expand_or_jump()
-        else
-          return { "<C-e><tab>" }
-        end
+        if luasnip.expand_or_jumpable() then luasnip.expand_or_jump() end
       end,
     },
     -- delete
@@ -76,11 +69,7 @@ return {
     -- LuaSnip jump index
     ["<C-k>"] = {
       function()
-        if luasnip.expand_or_jumpable() then
-          luasnip.expand_or_jump()
-        else
-          return { "<C-e><tab>" }
-        end
+        if luasnip.expand_or_jumpable() then luasnip.expand_or_jump() end
       end,
     },
   },
