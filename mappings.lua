@@ -74,6 +74,11 @@ return {
     },
   },
   t = {
+    -- disable window moving
+    ["<C-h>"] = false,
+    ["<C-j>"] = false,
+    ["<C-k>"] = false,
+    ["<C-l>"] = false,
     -- ToggleTerm
     ["<A-i>"] = { "<cmd>ToggleTerm<cr>", silent = true },
   },
