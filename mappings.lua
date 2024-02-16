@@ -1,29 +1,23 @@
-local luasnip = require "luasnip"
 local aerial = require "aerial"
 local osc52 = require "osc52"
+local function jump_index()
+  local luasnip = require "luasnip"
+  if luasnip.expand_or_jumpable() then luasnip.expand_or_jump() end
+end
 
 return {
   [""] = {
+    -- For US keyboard
+    [";"] = { ":", noremap = true },
+    [":"] = { ";", noremap = true },
     -- leap.nvim
     ["f"] = { "<Plug>(leap-forward-to)" },
     ["t"] = { "<Plug>(leap-forward-till)" },
     ["F"] = { "<Plug>(leap-backward-to)" },
     ["T"] = { "<Plug>(leap-backward-till)" },
     ["gf"] = { "<Plug>(leap-from-window)" },
-    -- zen-mode.nvim
-    ["<C-z>"] = { "<cmd>ZenMode<cr>", silent = true },
   },
   n = {
-    -- For US keyboard
-    [";"] = { ":", noremap = true },
-    [":"] = { ";", noremap = true },
-    -- yankround
-    ["p"] = { "<Plug>(yankround-p)" },
-    ["P"] = { "<Plug>(yankround-P)" },
-    ["gp"] = { "<Plug>(yankround-gp)" },
-    ["gP"] = { "<Plug>(yankround-gP)" },
-    ["<C-p>"] = { "<Plug>(yankround-prev)" },
-    ["<C-n>"] = { "<Plug>(yankround-next)" },
     -- osc52
     ["Y"] = { osc52.copy_operator, expr = true },
     ["YY"] = { "Y_", remap = true },
@@ -50,17 +44,10 @@ return {
     ["<leader>ts"] = { "<cmd>TermSelect<cr>", silent = true, desc = "ToggleTerm select" },
     ["<leader>tt"] = { "<cmd>ToggleTerm direction=tab<cr>", silent = true, desc = "ToggleTerm tab" },
   },
-  x = {
-    -- yankround
-    ["p"] = { "<Plug>(yankround-p)" },
-    ["gp"] = { "<Plug>(yankround-gp)" },
-  },
   i = {
     -- LuaSnip jump index
     ["<C-k>"] = {
-      function()
-        if luasnip.expand_or_jumpable() then luasnip.expand_or_jump() end
-      end,
+      jump_index,
     },
     -- delete
     ["<C-l>"] = { "<del>" },
@@ -68,9 +55,7 @@ return {
   s = {
     -- LuaSnip jump index
     ["<C-k>"] = {
-      function()
-        if luasnip.expand_or_jumpable() then luasnip.expand_or_jump() end
-      end,
+      jump_index,
     },
   },
   t = {

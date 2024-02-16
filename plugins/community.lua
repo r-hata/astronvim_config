@@ -17,6 +17,7 @@ return {
       },
     },
   },
-  { import = "astrocommunity.editing-support.zen-mode-nvim" },
+  { import = "astrocommunity.editing-support.ultimate-autopair-nvim" },
   { import = "astrocommunity.git.git-blame-nvim" },
+  { import = "astrocommunity.motion.nvim-surround" },
 }
