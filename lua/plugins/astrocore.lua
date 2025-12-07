@@ -45,9 +45,9 @@ return {
         -- For US keyboard
         [";"] = { ":" },
         -- leap.nvim
-        ["f"] = { "<Plug>(leap-forward-to)" },
+        ["f"] = { "<Plug>(leap-forward)" },
         ["t"] = { "<Plug>(leap-forward-till)" },
-        ["F"] = { "<Plug>(leap-backward-to)" },
+        ["F"] = { "<Plug>(leap-backward)" },
         ["T"] = { "<Plug>(leap-backward-till)" },
         ["gf"] = { "<Plug>(leap-from-window)" },
       },
