@@ -6,25 +6,36 @@ local function jump_index()
   local luasnip = require "luasnip"
   if luasnip.expand_or_jumpable() then luasnip.expand_or_jump() end
 end
-local function aerial_toggle()
-  require("aerial").toggle {
-    focus = true,
-    direction = "right",
-  }
-end
-local function aerial_focus() require("aerial").focus() end
-local function osc52_copy_visual() require("osc52").copy_visual() end
 
 ---@type LazySpec
 return {
   "AstroNvim/astrocore",
   ---@type AstroCoreOpts
   opts = {
+    -- Configure core features of AstroNvim
+    features = {
+      large_buf = { size = 1024 * 256, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
+      autopairs = true, -- enable autopairs at start
+      cmp = true, -- enable completion at start
+      diagnostics = { virtual_text = true, virtual_lines = false }, -- diagnostic settings on startup
+      highlighturl = true, -- highlight URLs at start
+      notifications = true, -- enable notifications at start
+    },
+    -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
+    diagnostics = {
+      virtual_text = true,
+      underline = true,
+    },
+    -- passed to `vim.filetype.add`
+    filetypes = {},
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
-        relativenumber = false,
-        wrap = true,
+        relativenumber = false, -- sets vim.opt.relativenumber
+        number = true, -- sets vim.opt.number
+        spell = false, -- sets vim.opt.spell
+        signcolumn = "yes", -- sets vim.opt.signcolumn to yes
+        wrap = true, -- sets vim.opt.wrap
         mouse = "",
       },
       g = { -- vim.g.<key>
@@ -41,45 +52,53 @@ return {
     -- Mappings can be configured through AstroCore as well.
     -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
     mappings = {
+      -- first key is the mode
       [""] = {
         -- For US keyboard
         [";"] = { ":" },
-        -- leap.nvim
-        ["f"] = { "<Plug>(leap-forward)" },
-        ["t"] = { "<Plug>(leap-forward-till)" },
-        ["F"] = { "<Plug>(leap-backward)" },
-        ["T"] = { "<Plug>(leap-backward-till)" },
-        ["gf"] = { "<Plug>(leap-from-window)" },
       },
       n = {
-        -- aerial
-        ["[["] = { "<cmd>AerialPrev<cr>", silent = true, desc = "Aerial Prev" },
-        ["]]"] = { "<cmd>AerialNext<cr>", silent = true, desc = "Aerial Next" },
-        ["<leader>a"] = { aerial_toggle, desc = "Toggle Aerial" },
-        ["<leader>i"] = { aerial_focus, desc = "Focus Aerial" },
-        -- telescope
-        ["<C-c>"] = { "<cmd>Telescope find_files<cr>", silent = true },
-        ["<C-b>"] = { "<cmd>Telescope buffers<cr>", silent = true },
-        ["q;"] = { "<cmd>Telescope command_history<cr>", silent = true, noremap = true },
-        ["q/"] = { "<cmd>Telescope search_history<cr>", silent = true, noremap = true },
+        -- second key is the lefthand side of the map
+
+        -- navigate buffer tabs
+        ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
+        ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
+
+        -- mappings seen under group name "Buffer"
+        ["<Leader>bd"] = {
+          function()
+            require("astroui.status.heirline").buffer_picker(
+              function(bufnr) require("astrocore.buffer").close(bufnr) end
+            )
+          end,
+          desc = "Close buffer from tabline",
+        },
+
+        -- Snacks
+        ["<C-c>"] = { function() require("snacks.picker").files() end },
+        ["<C-b>"] = { function() require("snacks.picker").buffers() end },
+
         -- ToggleTerm
         ["<A-i>"] = { "<cmd>ToggleTerm<cr>", silent = true },
         ["<leader>ts"] = { "<cmd>TermSelect<cr>", silent = true, desc = "ToggleTerm select" },
         ["<leader>tt"] = { "<cmd>ToggleTerm direction=tab<cr>", silent = true, desc = "ToggleTerm tab" },
+
+        -- tables with just a `desc` key will be registered with which-key if it's installed
+        -- this is useful for naming menus
+        -- ["<Leader>b"] = { desc = "Buffers" },
+
+        -- setting a mapping to false will disable it
+        -- ["<C-S>"] = false,
       },
       i = {
         -- LuaSnip jump index
-        ["<C-k>"] = {
-          jump_index,
-        },
+        ["<C-k>"] = { jump_index },
         -- delete
         ["<C-l>"] = { "<del>" },
       },
       s = {
         -- LuaSnip jump index
-        ["<C-k>"] = {
-          jump_index,
-        },
+        ["<C-k>"] = { jump_index },
       },
       t = {
         -- disable window moving
@@ -89,10 +108,6 @@ return {
         ["<C-l>"] = false,
         -- ToggleTerm
         ["<A-i>"] = { "<cmd>ToggleTerm<cr>", silent = true },
-      },
-      v = {
-        -- osc52
-        ["Y"] = { osc52_copy_visual },
       },
     },
   },
