@@ -18,8 +18,11 @@ return {
   {
     "tokyonight.nvim",
     opts = {
+      transparent = true,
       styles = {
         comments = { italic = false },
+        sidebars = "transparent",
+        floats = "transparent",
       },
     },
   },
